@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: outbox-pedidos
+
+  datasource:
+    url: jdbc:h2:mem:outbox;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+
+  sql:
+    init:
+      mode: always
+
+outbox:
+  # Latencia minima do evento: no pior caso, o consumidor recebe este tanto depois do
+  # commit. Diminuir custa uma consulta a mais por segundo no banco.
+  intervalo-de-publicacao: 500
+  retencao: P7D
+  cron-de-limpeza: "0 0 3 * * *"
+
+logging:
+  level:
+    io.github.vmarins2005.outbox: INFO
