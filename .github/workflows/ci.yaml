@@ -42,7 +42,7 @@ jobs:
 
       # `test` e não `verify`: este repositório não separa teste unitário de integração em
       # fases distintas, nem tem limite de cobertura ou SBOM. Quem faz isso é o
-      # `java-template-servico`, o esqueleto desta série — e forçar a estrutura dele para
+      # `java-service-template`, o esqueleto desta série — e forçar a estrutura dele para
       # trás significaria reescrever o projeto, não acrescentar CI.
       #
       # Onde a suíte sobe contêineres via Testcontainers, o runner do GitHub já traz Docker.
